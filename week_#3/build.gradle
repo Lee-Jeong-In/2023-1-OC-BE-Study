@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.5'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'GDSC'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {			// 필요한 라이브러리 다운 받는 사이트
+	mavenCentral()
+}
+
+dependencies {		// 스프링에는 의존관계를 다 관리해 줘야 한다.
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	implementation 'org.jetbrains:annotations:20.1.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
